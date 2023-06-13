@@ -1,0 +1,41 @@
+
+<div fxLayout="row" fxLayoutWrap="wrap">
+
+    <div fxFlex="100%" fxFlex="100">
+      <mat-card>
+        <mat-card-content>
+          <h4 class="mb-32">Nome</h4>
+          <p class="ps-20 pe-16 activity-message">- {{ SubprocessGet.name }}</p>
+        </mat-card-content>
+      </mat-card>
+      <mat-card>
+        <mat-card-content>
+          <h4 class="mb-32">Reponsavel</h4>
+          <p class="ps-20 pe-16 activity-message">- {{ SubprocessGet.responsible }}</p>
+        </mat-card-content>
+      </mat-card>
+      <mat-card>
+        <mat-card-content>
+          <h4 class="mb-32">Descrição</h4>
+          <p class="ps-20 pe-16 activity-message">- {{ SubprocessGet.description }}</p>
+        </mat-card-content>
+      </mat-card>
+      <mat-card>
+        <mat-card-content>
+          <h4 class="mb-32">Ferramentas</h4>
+          <p class="ps-20 pe-16 activity-message">- {{ SubprocessGet.tools }}</p>
+        </mat-card-content>
+      </mat-card>
+      <mat-card>
+        <mat-card-content>
+          <h4 class="mb-32">Tecnologias</h4>
+          <p class="ps-20 pe-16 activity-message">- {{ SubprocessGet.technologies }}</p>
+        </mat-card-content>
+      </mat-card>
+      <mat-card>
+      </mat-card>
+    </div>
+
+    <button mat-button class="btn btn-info fw-normal" (click)="back()" type="submit">Voltar</button>
+  </div>
+  

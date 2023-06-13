@@ -1,0 +1,19 @@
+@import "./variables";
+@import "./global";
+@import "./mixins";
+@import "./core/app";
+@import "./layouts/layouts";
+@import "./components/components";
+
+
+//Common
+@import 'common/extend.scss';
+@import 'common/minxi.scss';
+@import 'common/variables.scss';
+@import 'common/global.scss';
+
+//layout
+@import 'layouts/main.scss';
+
+// Responsive
+@import 'layouts/responsive.scss';

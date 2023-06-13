@@ -1,0 +1,72 @@
+
+
+<mat-form-field class="w-100 fs-16" appearance="outline">
+    <mat-label>Selecione a Área</mat-label>
+    <select matNativeControl class="form-control" [(ngModel)]="areaId" placeholder="Selecione uma Área" [ngModelOptions]="{standalone: true}">
+        <option *ngFor="let area of areas" value="1" [ngValue]="area.areaId">{{area.name}}  </option>
+    </select>
+</mat-form-field>
+
+<mat-card *ngIf="areaId > 0">
+    <mat-card-content>
+    <h4 class="mb-32">Processos</h4>
+    <button id="bt" mat-button class="btn mb-32 btn-info fw-normal" (click)="process()">{{buttonName}}</button>
+      <mat-card-title></mat-card-title>
+      <mat-accordion *ngFor="let process of processos">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Processo</mat-panel-title>
+            <mat-panel-title>Nome :{{process.name}}</mat-panel-title>
+            <mat-panel-description>Responsavel : {{process.responsible}} </mat-panel-description>
+          </mat-expansion-panel-header>
+            <mat-panel-description class="mb-16">Descrição: {{process.description}}</mat-panel-description>
+            <mat-panel-description class="mb-16">Ferramentas: {{process.tools}}</mat-panel-description>
+            <mat-panel-description class="mb-16">Tecnologias: {{process.technologies}}</mat-panel-description>
+            <mat-card-title class="mb-32"></mat-card-title>
+            <button id="bt" mat-button class="btn btn-info fw-normal" (click)="subprocess(process.processId)">Mostrar Subprocessos</button>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-content *ngFor="let subprocess of subprocessos">
+    <h4 class="mb-32">Subprocessos</h4>
+      <mat-card-title></mat-card-title>
+      <mat-accordion >
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Subprocess</mat-panel-title>
+            <mat-panel-title>Nome :{{subprocess.name}}</mat-panel-title>
+            <mat-panel-description>Responsavel : {{subprocess.responsible}} </mat-panel-description>
+          </mat-expansion-panel-header>
+            <mat-panel-description class="mb-16">Descrição: {{subprocess.description}}</mat-panel-description>
+            <mat-panel-description class="mb-16">Ferramentas: {{subprocess.tools}}</mat-panel-description>
+            <mat-panel-description class="mb-16">Tecnologias: {{subprocess.technologies}}</mat-panel-description>
+            <mat-card-title class="mb-32"></mat-card-title>
+            <button id="bt" mat-button class="btn btn-info fw-normal" (click)="sub(subprocess.fatherId)">Mostrar Subprocessos</button>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-card-content>
+  </mat-card>
+
+
+  <mat-card>
+    <mat-card-content *ngFor="let sub of subs">
+    <h4 class="mb-32">Subprocessos do Subprocessos</h4>
+      <mat-card-title></mat-card-title>
+      <mat-accordion >
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Subprocess de Subprocesso</mat-panel-title>
+            <mat-panel-title>Nome :{{sub.name}}</mat-panel-title>
+            <mat-panel-description>Responsavel : {{sub.responsible}} </mat-panel-description>
+          </mat-expansion-panel-header>
+            <mat-panel-description class="mb-16">Descrição: {{sub.description}}</mat-panel-description>
+            <mat-panel-description class="mb-16">Ferramentas: {{sub.tools}}</mat-panel-description>
+            <mat-panel-description class="mb-16">Tecnologias: {{sub.technologies}}</mat-panel-description>
+            <mat-card-title class="mb-32"></mat-card-title>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-card-content>
+</mat-card>

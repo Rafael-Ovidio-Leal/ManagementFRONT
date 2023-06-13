@@ -1,0 +1,48 @@
+<div class="card">
+    <div class="card-body">
+      <h4 class="mb-32">Cadastro de Subprocessos</h4>
+      <form>
+        <mat-form-field class="w-100 fs-16" appearance="outline">
+          <mat-label>Nome</mat-label>
+          <input [(ngModel)]="name" [ngModelOptions]="{standalone: true}" matInput type="text" placeholder="{{SubprocessGet.name}}"/>
+        </mat-form-field>
+  
+        <mat-form-field class="w-100 fs-16" appearance="outline">
+          <mat-label>Responsável</mat-label>
+          <input [(ngModel)]="responsible" [ngModelOptions]="{standalone: true}" matInput type="text" placeholder="{{SubprocessGet.responsible}}"/>
+        </mat-form-field>
+  
+        <mat-form-field class="w-100 fs-16" appearance="outline">
+          <mat-label>Descrição</mat-label>
+          <textarea [(ngModel)]="description" [ngModelOptions]="{standalone: true}" matInput rows="6" placeholder="{{SubprocessGet.description}}"></textarea>
+        </mat-form-field>
+  
+        <mat-form-field class="w-100 fs-16" appearance="outline">
+          <mat-label>Ferramentas</mat-label>
+          <input [(ngModel)]="tools" [ngModelOptions]="{standalone: true}" matInput type="text" placeholder="{{SubprocessGet.tools}}"/>
+        </mat-form-field>
+
+        <mat-form-field class="w-100 fs-16" appearance="outline">
+          <mat-label>Tecnologias</mat-label>
+          <input [(ngModel)]="technologies" [ngModelOptions]="{standalone: true}" matInput type="text" placeholder="{{SubprocessGet.technologies}}"/>
+        </mat-form-field>
+
+        <mat-form-field class="w-100 fs-16" appearance="outline" *ngIf="processId > 0" >
+            <mat-label>Processos</mat-label>
+            <select matNativeControl class="form-control" [(ngModel)]="processId" [ngModelOptions]="{standalone: true}">
+                <option *ngFor="let process of processos" [ngValue]="process.processId">{{process.processId + " - " + process.name}}  </option>
+            </select>
+        </mat-form-field>
+
+        <mat-form-field class="w-100 fs-16" appearance="outline" *ngIf="fatherId > 0">
+            <mat-label>Subprocessos</mat-label>
+            <select matNativeControl class="form-control" [(ngModel)]="fatherId" [ngModelOptions]="{standalone: true}">
+                <option *ngFor="let subprocess of subprocessos" [ngValue]="subprocess.fatherId">{{subprocess.fatherId + " - " +subprocess.name}}  </option>
+            </select>
+        </mat-form-field>
+  
+        <button mat-button class="btn btn-info fw-normal" (click)="editar()" type="submit">Submit</button>
+        <button mat-button class="btn btn-info fw-normal" (click)="onBack()" type="submit">Cancelar</button>
+      </form>
+    </div>
+  </div>
